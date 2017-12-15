@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "isolatedModules": false,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitUseStrict": false,
+        "removeComments": true,
+        "noLib": false,
+        "noUnusedLocals": true,
+        "outDir": "./dist/",
+        "preserveConstEnums": true,
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "strictNullChecks": true,
+        "stripInternal": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "sourceMap": true,
+        "strictFunctionTypes": true,
+        "target": "es6"
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./test/**/*.ts"
+    ]
+}
