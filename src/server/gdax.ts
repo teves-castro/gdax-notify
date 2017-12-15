@@ -63,20 +63,20 @@ const gdax = new Gdax.WebsocketClient(["BTC-EUR"])
 //   }
 // })
 
-import * as express from "express"
-
-const app = express()
+// import * as express from "express"
+// const app = express()
 
 import * as Rx from "rxjs/Rx"
 import { max, min, reduce, last } from "ramda"
 // import { sum } from "ramda"
 // import * as moment from "moment"
 // import * as fs from "fs"
-import * as Slack from "node-slack"
 
-const slackHook = "https://hooks.slack.com/services/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"
+// import * as Slack from "node-slack"
 
-const slack = new Slack(slackHook)
+// const slackHook = "https://hooks.slack.com/services/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"
+
+// const slack = new Slack(slackHook)
 // const ticker = (message: string) =>
 //   slack.send({
 //     text: message,
@@ -84,17 +84,24 @@ const slack = new Slack(slackHook)
 //     username: "Bot",
 //   })
 
-app.post("/ticker", (req, res) => {
-  // FqXpZ3vG96J9jZOupbbMMAn7
-  console.log(req.body)
-  slack.respond(req.body, hook => {
-    return {
-      text: `Hello ${hook.username}`,
-      username: "Ticker Alert",
-    }
-  })
+// app.post("/ticker", (req, res) => {
+//   // FqXpZ3vG96J9jZOupbbMMAn7
+//   console.log(req.body)
+//   slack.respond(req.body, hook => {
+//     return {
+//       text: `Hello ${hook.username}`,
+//       username: "Ticker Alert",
+//     }
+//   })
+// })
+// app.listen(1234)
+
+import * as notifier from "node-notifier"
+// String
+notifier.notify({
+  title: "My notification",
+  message: "Hello, there!",
 })
-app.listen(1234)
 
 const prices = Rx.Observable.fromEventPattern<Message>(h => gdax.on("message", data => h(data)))
   .filter(data => data.type === "match")
